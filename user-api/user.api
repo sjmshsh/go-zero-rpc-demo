@@ -1,0 +1,25 @@
+syntax = "v1"
+
+info(
+	author: "lxy"
+	date: "2022-11-30"
+	desc : "api语法示例以及语法说明"
+)
+
+type (
+	UserInfoReq {
+		UserId int64 `json:"userId"`
+	}
+	UserInfoResp {
+		UserId   int64  `json:"userId"`
+		Nickname string `json:"nickname"`
+	}
+)
+
+service user-api {
+	// 这个是用来生成文档的
+	@doc "获取用户信息"
+	// 这个是handler的名称
+	@handler userInfo
+	post /user/info (UserInfoReq) returns (UserInfoResp)
+}

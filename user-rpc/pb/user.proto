@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+
+package pb;
+
+import "userModel.proto";
+
+message GetUserInfoReq {
+    int64 Id = 1;
+}
+
+message GetUserInfoResp {
+    UserModel userModel = 1;
+}
+
+// service
+service usercenter {
+    rpc GetUserInfo(GetUserInfoReq) returns (GetUserInfoResp);
+}
